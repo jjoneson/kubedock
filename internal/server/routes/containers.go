@@ -433,11 +433,12 @@ func (cr *Router) getContainerInfo(tainr *types.Container, detail bool) gin.H {
 			"Error":      errstr,
 		}
 		res["Config"] = gin.H{
-			"Image":  tainr.Image,
-			"Labels": tainr.Labels,
-			"Env":    tainr.Env,
-			"Cmd":    tainr.Cmd,
-			"Tty":    false,
+			"Image":    tainr.Image,
+			"Labels":   tainr.Labels,
+			"Env":      tainr.Env,
+			"Cmd":      tainr.Cmd,
+			"Tty":      false,
+			"Hostname": "kd-" + tainr.ShortID,
 		}
 		res["Created"] = tainr.Created.Format("2006-01-02T15:04:05Z")
 	} else {
